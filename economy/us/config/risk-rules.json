@@ -1,0 +1,325 @@
+{
+  "_doc": [
+    "지표별 위험 깃발 규칙. rules는 위에서부터 검사하여 처음 맞는 규칙을 적용하고, 맞는 것이 없으면 default를 적용한다.",
+    "규칙이 없는 지표는 '판단불가(⚪)'로 표시한다 — 정량 경계값이 뚜렷하지 않은 지표에 억지로 깃발을 붙이지 않기 위함.",
+    "지표 m: latest | chg:N(N개 관측 전 대비 차이) | yoyPct(전년 대비 %) | yoyDiff(전년 대비 차이) | avg:N | min:N | max:N | sahm | riseFromLow:A:W(최근 A개 평균이 W개 구간의 A개 이동평균 최저치 대비 몇 % 높은지)",
+    "조건: { m, op(< <= > >= ==), v(숫자) 또는 ref(다른 지표 id의 최신값) } / { any: [...] } / { all: [...] }",
+    "reason의 {latest} {yoyPct} {yoyDiff} {sahm} 등은 계산값으로 치환된다. 위험 깃발은 거시경제 위험도이며 매매 추천이 아니다."
+  ],
+  "rules": {
+    "sofr": {
+      "rules": [
+        { "if": { "m": "latest", "op": ">", "ref": "dfedtaru" }, "risk": "caution", "reason": "SOFR가 연준 목표범위 상단을 넘어 단기 자금시장 압박 신호입니다." }
+      ],
+      "default": { "risk": "normal", "reason": "SOFR가 연준 목표범위 안에서 움직이고 있습니다." }
+    },
+    "dff": {
+      "rules": [
+        { "if": { "m": "latest", "op": ">", "ref": "dfedtaru" }, "risk": "caution", "reason": "실효금리가 목표범위 상단을 넘어 자금시장 압박 신호입니다." }
+      ],
+      "default": { "risk": "normal", "reason": "실효금리가 목표범위 안에 있습니다. 금리 수준 자체는 위험 판단 대상이 아닙니다." }
+    },
+    "dgs2": {
+      "rules": [
+        { "if": { "m": "yoyDiff", "op": ">=", "v": 1.5 }, "risk": "danger", "reason": "1년 새 {yoyDiff}%p 급등해 금융여건이 빠르게 긴축되고 있습니다." },
+        { "if": { "m": "yoyDiff", "op": ">=", "v": 1.0 }, "risk": "caution", "reason": "1년 새 {yoyDiff}%p 올라 금리 상승 압력이 큽니다." }
+      ],
+      "default": { "risk": "normal", "reason": "1년 변화 {yoyDiff}%p로 급격한 금리 상승은 없습니다." }
+    },
+    "dgs10": {
+      "rules": [
+        { "if": { "m": "yoyDiff", "op": ">=", "v": 1.5 }, "risk": "danger", "reason": "1년 새 {yoyDiff}%p 급등해 장기 조달비용이 빠르게 오르고 있습니다." },
+        { "if": { "m": "yoyDiff", "op": ">=", "v": 1.0 }, "risk": "caution", "reason": "1년 새 {yoyDiff}%p 올라 장기금리 상승 압력이 큽니다." }
+      ],
+      "default": { "risk": "normal", "reason": "1년 변화 {yoyDiff}%p로 급격한 장기금리 상승은 없습니다." }
+    },
+    "dgs30": {
+      "rules": [
+        { "if": { "m": "yoyDiff", "op": ">=", "v": 1.5 }, "risk": "danger", "reason": "1년 새 {yoyDiff}%p 급등했습니다." },
+        { "if": { "m": "yoyDiff", "op": ">=", "v": 1.0 }, "risk": "caution", "reason": "1년 새 {yoyDiff}%p 올랐습니다." }
+      ],
+      "default": { "risk": "normal", "reason": "1년 변화 {yoyDiff}%p로 급격한 상승은 없습니다." }
+    },
+    "t10y2y": {
+      "rules": [
+        { "if": { "m": "latest", "op": "<", "v": 0 }, "risk": "danger", "reason": "장단기 금리 역전({latest}%p) — 과거 경기침체에 앞서 자주 나타난 신호입니다." },
+        { "if": { "all": [{ "m": "min:250", "op": "<", "v": 0 }, { "m": "latest", "op": ">=", "v": 0 }] }, "risk": "caution", "reason": "최근 1년 내 역전됐다가 다시 플러스로 돌아섰습니다. 과거엔 역전 해소 국면에서 침체가 시작되곤 했습니다." },
+        { "if": { "m": "latest", "op": "<", "v": 0.25 }, "risk": "caution", "reason": "금리차가 {latest}%p로 역전 직전 수준까지 좁혀졌습니다." }
+      ],
+      "default": { "risk": "normal", "reason": "금리차 {latest}%p로 정상적인 우상향 수익률곡선입니다." }
+    },
+    "t10y3m": {
+      "rules": [
+        { "if": { "m": "latest", "op": "<", "v": 0 }, "risk": "danger", "reason": "10년−3개월 금리 역전({latest}%p) — 연준 연구에서 침체 예측력이 높은 신호입니다." },
+        { "if": { "all": [{ "m": "min:250", "op": "<", "v": 0 }, { "m": "latest", "op": ">=", "v": 0 }] }, "risk": "caution", "reason": "최근 1년 내 역전됐다가 해소되었습니다. 역전 해소 국면은 과거 침체 시작 시점과 겹쳤습니다." },
+        { "if": { "m": "latest", "op": "<", "v": 0.25 }, "risk": "caution", "reason": "금리차가 {latest}%p로 역전 직전입니다." }
+      ],
+      "default": { "risk": "normal", "reason": "금리차 {latest}%p로 정상 구간입니다." }
+    },
+    "dfii5": {
+      "rules": [
+        { "if": { "m": "latest", "op": ">=", "v": 2.25 }, "risk": "caution", "reason": "5년 실질금리 {latest}%는 2000년대 이후 높은 수준으로 긴축적인 금융여건입니다." }
+      ],
+      "default": { "risk": "normal", "reason": "5년 실질금리 {latest}%로 과도하게 긴축적인 수준은 아닙니다." }
+    },
+    "dfii10": {
+      "rules": [
+        { "if": { "m": "latest", "op": ">=", "v": 2.25 }, "risk": "caution", "reason": "10년 실질금리 {latest}%는 2008년 이후 높은 수준으로 자산가격에 부담입니다." }
+      ],
+      "default": { "risk": "normal", "reason": "10년 실질금리 {latest}%로 과도하게 긴축적인 수준은 아닙니다." }
+    },
+    "t5yie": {
+      "rules": [
+        { "if": { "any": [{ "m": "latest", "op": ">=", "v": 3.25 }, { "m": "latest", "op": "<", "v": 1.0 }] }, "risk": "danger", "reason": "5년 기대인플레이션 {latest}%가 연준 목표(2%)에서 크게 벗어났습니다." },
+        { "if": { "any": [{ "m": "latest", "op": ">=", "v": 2.75 }, { "m": "latest", "op": "<", "v": 1.5 }] }, "risk": "caution", "reason": "5년 기대인플레이션 {latest}%가 목표(2%)에서 벗어나는 중입니다." }
+      ],
+      "default": { "risk": "normal", "reason": "5년 기대인플레이션 {latest}%로 안정 구간(1.5~2.75%)입니다." }
+    },
+    "t10yie": {
+      "rules": [
+        { "if": { "any": [{ "m": "latest", "op": ">=", "v": 3.0 }, { "m": "latest", "op": "<", "v": 1.25 }] }, "risk": "danger", "reason": "10년 기대인플레이션 {latest}%가 크게 이탈했습니다." },
+        { "if": { "any": [{ "m": "latest", "op": ">=", "v": 2.6 }, { "m": "latest", "op": "<", "v": 1.6 }] }, "risk": "caution", "reason": "10년 기대인플레이션 {latest}%가 안정 구간을 벗어났습니다." }
+      ],
+      "default": { "risk": "normal", "reason": "10년 기대인플레이션 {latest}%로 안정 구간(1.6~2.6%)입니다." }
+    },
+    "t5yifr": {
+      "rules": [
+        { "if": { "any": [{ "m": "latest", "op": ">=", "v": 2.75 }, { "m": "latest", "op": "<", "v": 1.75 }] }, "risk": "caution", "reason": "장기 기대인플레이션 {latest}%가 고정(앵커) 구간을 벗어났습니다." }
+      ],
+      "default": { "risk": "normal", "reason": "장기 기대인플레이션 {latest}%로 잘 고정되어 있습니다." }
+    },
+    "cpiaucsl": {
+      "rules": [
+        { "if": { "m": "yoyPct", "op": ">=", "v": 5 }, "risk": "danger", "reason": "전년 대비 {yoyPct}% 상승 — 고인플레이션 국면입니다." },
+        { "if": { "m": "yoyPct", "op": ">=", "v": 3 }, "risk": "caution", "reason": "전년 대비 {yoyPct}% 상승으로 연준 목표를 웃돕니다." },
+        { "if": { "m": "yoyPct", "op": "<", "v": 0 }, "risk": "caution", "reason": "전년 대비 {yoyPct}%로 물가가 하락(디플레이션 위험)하고 있습니다." }
+      ],
+      "default": { "risk": "normal", "reason": "전년 대비 {yoyPct}% 상승으로 안정 구간입니다." }
+    },
+    "cpilfesl": {
+      "rules": [
+        { "if": { "m": "yoyPct", "op": ">=", "v": 5 }, "risk": "danger", "reason": "근원물가 전년 대비 {yoyPct}% — 기조적 인플레이션이 높습니다." },
+        { "if": { "m": "yoyPct", "op": ">=", "v": 3 }, "risk": "caution", "reason": "근원물가 전년 대비 {yoyPct}%로 목표를 웃돕니다." }
+      ],
+      "default": { "risk": "normal", "reason": "근원물가 전년 대비 {yoyPct}%로 안정 구간입니다." }
+    },
+    "ppifis": {
+      "rules": [
+        { "if": { "m": "yoyPct", "op": ">=", "v": 7 }, "risk": "danger", "reason": "생산자물가 전년 대비 {yoyPct}% 급등 — 소비자물가 전가 압력이 큽니다." },
+        { "if": { "any": [{ "m": "yoyPct", "op": ">=", "v": 4 }, { "m": "yoyPct", "op": "<", "v": -2 }] }, "risk": "caution", "reason": "생산자물가 전년 대비 {yoyPct}%로 정상 범위를 벗어났습니다." }
+      ],
+      "default": { "risk": "normal", "reason": "생산자물가 전년 대비 {yoyPct}%로 안정적입니다." }
+    },
+    "ppiaco": {
+      "rules": [
+        { "if": { "m": "yoyPct", "op": ">=", "v": 15 }, "risk": "danger", "reason": "원자재 물가가 전년 대비 {yoyPct}% 급등했습니다." },
+        { "if": { "any": [{ "m": "yoyPct", "op": ">=", "v": 8 }, { "m": "yoyPct", "op": "<", "v": -5 }] }, "risk": "caution", "reason": "원자재 물가가 전년 대비 {yoyPct}%로 크게 움직였습니다." }
+      ],
+      "default": { "risk": "normal", "reason": "원자재 물가 전년 대비 {yoyPct}%로 안정적입니다." }
+    },
+    "eciallciv": {
+      "rules": [
+        { "if": { "m": "yoyPct", "op": ">=", "v": 5.5 }, "risk": "danger", "reason": "고용비용이 전년 대비 {yoyPct}% 올라 임금발 인플레이션 압력이 큽니다." },
+        { "if": { "m": "yoyPct", "op": ">=", "v": 4.5 }, "risk": "caution", "reason": "고용비용이 전년 대비 {yoyPct}% 올라 목표 물가와 맞지 않는 속도입니다." }
+      ],
+      "default": { "risk": "normal", "reason": "고용비용 전년 대비 {yoyPct}%로 안정적입니다." }
+    },
+    "unrate": {
+      "rules": [
+        { "if": { "m": "sahm", "op": ">=", "v": 0.5 }, "risk": "danger", "reason": "삼의 법칙 발동: 실업률 3개월 평균이 지난 12개월 최저치보다 {sahm}%p 높습니다." },
+        { "if": { "any": [{ "m": "sahm", "op": ">=", "v": 0.3 }, { "m": "yoyDiff", "op": ">=", "v": 0.5 }] }, "risk": "caution", "reason": "실업률이 꾸준히 오르고 있습니다(삼 지표 {sahm}%p, 1년 변화 {yoyDiff}%p)." }
+      ],
+      "default": { "risk": "normal", "reason": "실업률 {latest}%, 삼 지표 {sahm}%p로 지속적 상승 신호는 없습니다." }
+    },
+    "u6rate": {
+      "rules": [
+        { "if": { "m": "yoyDiff", "op": ">=", "v": 2.0 }, "risk": "danger", "reason": "광의실업률이 1년 새 {yoyDiff}%p 올랐습니다." },
+        { "if": { "m": "yoyDiff", "op": ">=", "v": 1.0 }, "risk": "caution", "reason": "광의실업률이 1년 새 {yoyDiff}%p 올랐습니다." }
+      ],
+      "default": { "risk": "normal", "reason": "광의실업률 1년 변화 {yoyDiff}%p로 안정적입니다." }
+    },
+    "payems": {
+      "rules": [
+        { "if": { "m": "chg:3", "op": "<", "v": 0 }, "risk": "danger", "reason": "최근 3개월 일자리가 순감소했습니다(3개월 누적 {chg:3}천 명)." },
+        { "if": { "m": "chg:3", "op": "<", "v": 150 }, "risk": "caution", "reason": "최근 3개월 일자리 증가가 월평균 5만 명 미만으로 둔화되었습니다(누적 {chg:3}천 명)." }
+      ],
+      "default": { "risk": "normal", "reason": "최근 3개월 일자리 누적 {chg:3}천 명 증가로 고용이 늘고 있습니다." }
+    },
+    "emratio": {
+      "rules": [
+        { "if": { "m": "chg:12", "op": "<=", "v": -1.0 }, "risk": "danger", "reason": "고용률이 1년 새 {chg:12}%p 하락했습니다." },
+        { "if": { "m": "chg:12", "op": "<=", "v": -0.5 }, "risk": "caution", "reason": "고용률이 1년 새 {chg:12}%p 하락했습니다." }
+      ],
+      "default": { "risk": "normal", "reason": "고용률 1년 변화 {chg:12}%p로 안정적입니다." }
+    },
+    "icsa": {
+      "rules": [
+        { "if": { "m": "riseFromLow:4:52", "op": ">=", "v": 30 }, "risk": "danger", "reason": "신규 청구 4주 평균이 1년 내 저점보다 {riseFromLow:4:52}% 높아 해고가 빠르게 늘고 있습니다." },
+        { "if": { "m": "riseFromLow:4:52", "op": ">=", "v": 15 }, "risk": "caution", "reason": "신규 청구 4주 평균이 1년 내 저점보다 {riseFromLow:4:52}% 높습니다." }
+      ],
+      "default": { "risk": "normal", "reason": "신규 청구 4주 평균이 1년 저점 대비 {riseFromLow:4:52}% 수준으로 안정적입니다." }
+    },
+    "ccsa": {
+      "rules": [
+        { "if": { "m": "riseFromLow:4:52", "op": ">=", "v": 25 }, "risk": "danger", "reason": "계속 청구 4주 평균이 1년 내 저점보다 {riseFromLow:4:52}% 높아 재취업이 어려워지고 있습니다." },
+        { "if": { "m": "riseFromLow:4:52", "op": ">=", "v": 12 }, "risk": "caution", "reason": "계속 청구 4주 평균이 1년 내 저점보다 {riseFromLow:4:52}% 높습니다." }
+      ],
+      "default": { "risk": "normal", "reason": "계속 청구가 1년 저점 대비 {riseFromLow:4:52}% 수준으로 안정적입니다." }
+    },
+    "jtsjol": {
+      "rules": [
+        { "if": { "m": "yoyPct", "op": "<=", "v": -15 }, "risk": "caution", "reason": "구인건수가 전년 대비 {yoyPct}% 줄어 노동수요가 식고 있습니다." }
+      ],
+      "default": { "risk": "normal", "reason": "구인건수 전년 대비 {yoyPct}%로 급감하지 않았습니다." }
+    },
+    "jtsqur": {
+      "rules": [
+        { "if": { "m": "latest", "op": "<=", "v": 1.6 }, "risk": "danger", "reason": "자발적 퇴직률 {latest}%는 2010년대 초 침체 후 수준입니다." },
+        { "if": { "m": "latest", "op": "<=", "v": 2.0 }, "risk": "caution", "reason": "자발적 퇴직률 {latest}%로 근로자의 이직 자신감이 낮습니다." }
+      ],
+      "default": { "risk": "normal", "reason": "자발적 퇴직률 {latest}%로 정상 범위입니다." }
+    },
+    "jtshir": {
+      "rules": [
+        { "if": { "m": "yoyDiff", "op": "<=", "v": -0.4 }, "risk": "caution", "reason": "채용률이 1년 새 {yoyDiff}%p 하락했습니다." }
+      ],
+      "default": { "risk": "normal", "reason": "채용률 1년 변화 {yoyDiff}%p로 급감하지 않았습니다." }
+    },
+    "jtsldl": {
+      "rules": [
+        { "if": { "m": "yoyPct", "op": ">=", "v": 30 }, "risk": "danger", "reason": "해고·감원이 전년 대비 {yoyPct}% 늘었습니다." },
+        { "if": { "m": "yoyPct", "op": ">=", "v": 15 }, "risk": "caution", "reason": "해고·감원이 전년 대비 {yoyPct}% 늘었습니다." }
+      ],
+      "default": { "risk": "normal", "reason": "해고·감원 전년 대비 {yoyPct}%로 큰 증가가 없습니다." }
+    },
+    "ces0500000003": {
+      "rules": [
+        { "if": { "m": "yoyPct", "op": ">=", "v": 5 }, "risk": "caution", "reason": "임금이 전년 대비 {yoyPct}% 올라 물가 압력 요인입니다." },
+        { "if": { "m": "yoyPct", "op": "<", "v": 2.5 }, "risk": "caution", "reason": "임금 상승률이 {yoyPct}%로 둔화되어 노동시장 약화 신호입니다." }
+      ],
+      "default": { "risk": "normal", "reason": "임금 전년 대비 {yoyPct}%로 안정 구간입니다." }
+    },
+    "awhaetp": {
+      "rules": [
+        { "if": { "m": "chg:12", "op": "<=", "v": -0.6 }, "risk": "danger", "reason": "주당 근로시간이 1년 새 {chg:12}시간 줄었습니다 — 해고에 앞서는 경우가 많습니다." },
+        { "if": { "m": "chg:12", "op": "<=", "v": -0.3 }, "risk": "caution", "reason": "주당 근로시간이 1년 새 {chg:12}시간 줄었습니다." }
+      ],
+      "default": { "risk": "normal", "reason": "주당 근로시간 1년 변화 {chg:12}시간으로 안정적입니다." }
+    },
+    "indpro": {
+      "rules": [
+        { "if": { "m": "yoyPct", "op": "<=", "v": -3 }, "risk": "danger", "reason": "산업생산이 전년 대비 {yoyPct}% 감소했습니다." },
+        { "if": { "m": "yoyPct", "op": "<", "v": 0 }, "risk": "caution", "reason": "산업생산이 전년 대비 {yoyPct}%로 감소세입니다." }
+      ],
+      "default": { "risk": "normal", "reason": "산업생산 전년 대비 {yoyPct}%로 증가세입니다." }
+    },
+    "tcu": {
+      "rules": [
+        { "if": { "m": "latest", "op": "<", "v": 72 }, "risk": "danger", "reason": "설비가동률 {latest}%는 과거 침체기 수준입니다." },
+        { "if": { "m": "latest", "op": "<", "v": 76 }, "risk": "caution", "reason": "설비가동률 {latest}%로 장기평균(약 78%)을 밑돕니다." }
+      ],
+      "default": { "risk": "normal", "reason": "설비가동률 {latest}%로 정상 범위입니다." }
+    },
+    "rsafs": {
+      "rules": [
+        { "if": { "m": "yoyPct", "op": "<", "v": 0 }, "risk": "danger", "reason": "명목 소매판매가 전년 대비 {yoyPct}% 감소했습니다." },
+        { "if": { "m": "yoyPct", "op": "<", "v": 2 }, "risk": "caution", "reason": "명목 소매판매 증가율 {yoyPct}%로 물가상승을 감안하면 소비가 정체입니다." }
+      ],
+      "default": { "risk": "normal", "reason": "소매판매 전년 대비 {yoyPct}% 증가했습니다." }
+    },
+    "rrsfs": {
+      "rules": [
+        { "if": { "m": "yoyPct", "op": "<=", "v": -3 }, "risk": "danger", "reason": "실질 소매판매가 전년 대비 {yoyPct}% 감소했습니다." },
+        { "if": { "m": "yoyPct", "op": "<", "v": 0 }, "risk": "caution", "reason": "실질 소매판매가 전년 대비 {yoyPct}%로 감소세입니다." }
+      ],
+      "default": { "risk": "normal", "reason": "실질 소매판매 전년 대비 {yoyPct}% 증가했습니다." }
+    },
+    "dgorder": {
+      "rules": [
+        { "if": { "m": "yoyPct", "op": "<=", "v": -10 }, "risk": "caution", "reason": "내구재 주문이 전년 대비 {yoyPct}% 감소했습니다(항공기 주문으로 변동성이 큼)." }
+      ],
+      "default": { "risk": "normal", "reason": "내구재 주문 전년 대비 {yoyPct}%입니다(월별 변동성이 큰 지표)." }
+    },
+    "houst": {
+      "rules": [
+        { "if": { "m": "yoyPct", "op": "<=", "v": -25 }, "risk": "danger", "reason": "주택착공이 전년 대비 {yoyPct}% 급감했습니다." },
+        { "if": { "m": "yoyPct", "op": "<=", "v": -10 }, "risk": "caution", "reason": "주택착공이 전년 대비 {yoyPct}% 감소했습니다." }
+      ],
+      "default": { "risk": "normal", "reason": "주택착공 전년 대비 {yoyPct}%입니다." }
+    },
+    "permit": {
+      "rules": [
+        { "if": { "m": "yoyPct", "op": "<=", "v": -25 }, "risk": "danger", "reason": "건축허가가 전년 대비 {yoyPct}% 급감했습니다(경기 선행 신호)." },
+        { "if": { "m": "yoyPct", "op": "<=", "v": -10 }, "risk": "caution", "reason": "건축허가가 전년 대비 {yoyPct}% 감소했습니다." }
+      ],
+      "default": { "risk": "normal", "reason": "건축허가 전년 대비 {yoyPct}%입니다." }
+    },
+    "hsn1f": {
+      "rules": [
+        { "if": { "m": "yoyPct", "op": "<=", "v": -30 }, "risk": "danger", "reason": "신규주택 판매가 전년 대비 {yoyPct}% 급감했습니다." },
+        { "if": { "m": "yoyPct", "op": "<=", "v": -15 }, "risk": "caution", "reason": "신규주택 판매가 전년 대비 {yoyPct}% 감소했습니다." }
+      ],
+      "default": { "risk": "normal", "reason": "신규주택 판매 전년 대비 {yoyPct}%입니다(표본오차가 큰 지표)." }
+    },
+    "drtscilm": {
+      "rules": [
+        { "if": { "m": "latest", "op": ">=", "v": 40 }, "risk": "danger", "reason": "대출심사를 강화한 은행 비율(순) {latest}% — 과거 침체기 수준의 신용 긴축입니다." },
+        { "if": { "m": "latest", "op": ">=", "v": 15 }, "risk": "caution", "reason": "대출심사 강화 은행 비율(순) {latest}%로 신용이 조여지고 있습니다." }
+      ],
+      "default": { "risk": "normal", "reason": "대출심사 강화 비율(순) {latest}%로 신용 공급이 크게 위축되지 않았습니다." }
+    },
+    "usrec": {
+      "rules": [
+        { "if": { "m": "latest", "op": "==", "v": 1 }, "risk": "danger", "reason": "NBER 기준 경기침체 기간에 해당합니다." }
+      ],
+      "default": { "risk": "normal", "reason": "NBER가 판정한 경기침체 기간이 아닙니다. 단, NBER 판정은 수개월 이상 늦게 나옵니다." }
+    },
+    "m2sl": {
+      "rules": [
+        { "if": { "m": "yoyPct", "op": "<", "v": -2 }, "risk": "danger", "reason": "통화량이 전년 대비 {yoyPct}% 감소 — 1930년대 이후 드문 통화 수축입니다." },
+        { "if": { "any": [{ "m": "yoyPct", "op": "<", "v": 0 }, { "m": "yoyPct", "op": ">", "v": 12 }] }, "risk": "caution", "reason": "통화량 증가율 {yoyPct}%가 정상 범위(0~12%)를 벗어났습니다." }
+      ],
+      "default": { "risk": "normal", "reason": "통화량 전년 대비 {yoyPct}% 증가로 정상 범위입니다." }
+    },
+    "busloans": {
+      "rules": [
+        { "if": { "m": "yoyPct", "op": "<=", "v": -5 }, "risk": "danger", "reason": "기업대출이 전년 대비 {yoyPct}% 감소했습니다(과거 침체기 패턴)." },
+        { "if": { "m": "yoyPct", "op": "<", "v": 0 }, "risk": "caution", "reason": "기업대출이 전년 대비 {yoyPct}% 감소했습니다." }
+      ],
+      "default": { "risk": "normal", "reason": "기업대출 전년 대비 {yoyPct}% 증가했습니다." }
+    },
+    "totalsl": {
+      "rules": [
+        { "if": { "m": "yoyPct", "op": "<", "v": 0 }, "risk": "danger", "reason": "소비자신용이 전년 대비 {yoyPct}% 감소했습니다(가계 디레버리징)." },
+        { "if": { "m": "yoyPct", "op": "<", "v": 2 }, "risk": "caution", "reason": "소비자신용 증가율이 {yoyPct}%로 둔화되었습니다." }
+      ],
+      "default": { "risk": "normal", "reason": "소비자신용 전년 대비 {yoyPct}% 증가했습니다." }
+    },
+    "dtwexbgs": {
+      "rules": [
+        { "if": { "m": "yoyPct", "op": ">=", "v": 8 }, "risk": "caution", "reason": "달러가 1년 새 {yoyPct}% 강세 — 글로벌 금융여건 긴축 요인입니다." }
+      ],
+      "default": { "risk": "normal", "reason": "달러지수 1년 변화 {yoyPct}%로 급격한 강세는 없습니다." }
+    },
+    "dexkous": {
+      "rules": [
+        { "if": { "m": "yoyPct", "op": ">=", "v": 10 }, "risk": "caution", "reason": "원화가 1년 새 달러 대비 {yoyPct}% 약세입니다." }
+      ],
+      "default": { "risk": "normal", "reason": "달러/원 1년 변화 {yoyPct}%로 급격한 원화 약세는 없습니다." }
+    },
+    "dcoilwtico": {
+      "rules": [
+        { "if": { "m": "yoyPct", "op": ">=", "v": 80 }, "risk": "danger", "reason": "유가가 1년 새 {yoyPct}% 급등 — 과거 침체 전 유가 충격과 유사합니다." },
+        { "if": { "any": [{ "m": "yoyPct", "op": ">=", "v": 40 }, { "m": "yoyPct", "op": "<=", "v": -40 }] }, "risk": "caution", "reason": "유가가 1년 새 {yoyPct}% 크게 움직였습니다." }
+      ],
+      "default": { "risk": "normal", "reason": "유가 1년 변화 {yoyPct}%로 충격 수준은 아닙니다." }
+    },
+    "dcoilbrenteu": {
+      "rules": [
+        { "if": { "m": "yoyPct", "op": ">=", "v": 80 }, "risk": "danger", "reason": "브렌트유가 1년 새 {yoyPct}% 급등했습니다." },
+        { "if": { "any": [{ "m": "yoyPct", "op": ">=", "v": 40 }, { "m": "yoyPct", "op": "<=", "v": -40 }] }, "risk": "caution", "reason": "브렌트유가 1년 새 {yoyPct}% 크게 움직였습니다." }
+      ],
+      "default": { "risk": "normal", "reason": "브렌트유 1년 변화 {yoyPct}%로 충격 수준은 아닙니다." }
+    }
+  }
+}

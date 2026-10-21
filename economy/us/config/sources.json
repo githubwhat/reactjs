@@ -1,0 +1,57 @@
+{
+  "treasury": {
+    "name": "U.S. Department of the Treasury — Daily Treasury Par / Real Yield Curve Rates",
+    "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
+    "access": "공개 XML 피드, 등록·키 불필요",
+    "terms": "미국 연방정부 저작물(퍼블릭 도메인)"
+  },
+  "nyfed": {
+    "name": "Federal Reserve Bank of New York — Markets Data API",
+    "url": "https://markets.newyorkfed.org/static/docs/markets-api.html",
+    "access": "공개 JSON API, 등록·키 불필요",
+    "terms": "Terms of Use(newyorkfed.org)에 따라 고지문 표기 시 사업 목적 이용·배포 허용",
+    "notice": "EFFR·SOFR·역레포 데이터는 newyorkfed.org의 Terms of Use를 따릅니다. 뉴욕 연준은 USAPI의 재게시에 책임지지 않으며 이를 승인·보증하지 않습니다. SOFR는 DTCC Solutions LLC(The Depository Trust & Clearing Corporation 계열사)로부터 라이선스 받은 데이터로 산출됩니다."
+  },
+  "bls": {
+    "name": "U.S. Bureau of Labor Statistics — Public Data API v1",
+    "url": "https://www.bls.gov/developers/",
+    "access": "API v1은 등록 불필요 (일 25회, 요청당 25개 시리즈·10년)",
+    "terms": "미국 연방정부 저작물(퍼블릭 도메인)"
+  },
+  "dol": {
+    "name": "U.S. Department of Labor — Weekly Claims (r539cy)",
+    "url": "https://oui.doleta.gov/unemploy/claims.asp",
+    "access": "공개 XML 보고서, 등록 불필요",
+    "terms": "미국 연방정부 저작물(퍼블릭 도메인)"
+  },
+  "fed": {
+    "name": "Board of Governors of the Federal Reserve System — Data Download Program (release packages)",
+    "url": "https://www.federalreserve.gov/datadownload/",
+    "access": "릴리스 전체 패키지(zip/XML), 등록 불필요. ※ 연준이 DDP 퇴역을 예고함 — 경로 변경 시 '업데이트 지연' 표시",
+    "terms": "연준 이사회 공개 통계"
+  },
+  "census": {
+    "name": "U.S. Census Bureau — Business & Industry Time Series (full report download)",
+    "url": "https://www.census.gov/econ/currentdata/",
+    "access": "보고서 전체 데이터 zip, 등록 불필요 (※ Census Data API는 키 필수로 바뀌어 사용하지 않음)",
+    "terms": "미국 연방정부 저작물(퍼블릭 도메인)"
+  },
+  "fiscal": {
+    "name": "U.S. Treasury Fiscal Data — Debt to the Penny / Monthly Treasury Statement",
+    "url": "https://fiscaldata.treasury.gov/api-documentation/",
+    "access": "공개 REST API, 등록·키 불필요",
+    "terms": "미국 연방정부 저작물(퍼블릭 도메인)"
+  },
+  "eia": {
+    "name": "U.S. Energy Information Administration — Spot Prices (history pages)",
+    "url": "https://www.eia.gov/dnav/pet/pet_pri_spt_s1_d.htm",
+    "access": "공개 웹 표, 등록 불필요 (EIA API v2는 키 필요하여 사용하지 않음)",
+    "terms": "EIA 데이터는 퍼블릭 도메인 (출처 표기 권장)"
+  },
+  "nber": {
+    "name": "National Bureau of Economic Research — US Business Cycle Dates",
+    "url": "https://www.nber.org/research/data/us-business-cycle-expansions-and-contractions",
+    "access": "공개 JSON, 등록 불필요",
+    "terms": "경기 정점·저점 날짜(사실 정보)를 바탕으로 월별 0/1 지표를 산출"
+  }
+}

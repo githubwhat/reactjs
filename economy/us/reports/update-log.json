@@ -1,0 +1,399 @@
+[
+  {
+    "startedAt": "2026-10-21T08:52:47.924Z",
+    "sources": {
+      "fed": {
+        "ok": 14,
+        "failed": 0,
+        "changedObs": 37541,
+        "full": true,
+        "ms": 14278,
+        "errors": []
+      }
+    },
+    "indicators": {
+      "indpro": true,
+      "tcu": true,
+      "drtscilm": true,
+      "walcl": true,
+      "m2sl": true,
+      "bogmbase": true,
+      "wresbal": true,
+      "wtregen": true,
+      "busloans": true,
+      "totalsl": true,
+      "dtwexbgs": true,
+      "dexuseu": true,
+      "dexjpus": true,
+      "dexkous": true
+    },
+    "finishedAt": "2026-10-21T08:53:03.130Z",
+    "ms": 15199,
+    "implemented": 65,
+    "tally": {
+      "normal": 36,
+      "caution": 9,
+      "danger": 1,
+      "unknown": 19
+    }
+  },
+  {
+    "startedAt": "2026-10-21T08:44:33.849Z",
+    "sources": {
+      "nyfed": {
+        "ok": 5,
+        "failed": 0,
+        "changedObs": 0,
+        "full": false,
+        "ms": 2364,
+        "errors": []
+      },
+      "treasury": {
+        "ok": 7,
+        "failed": 0,
+        "changedObs": 0,
+        "full": false,
+        "ms": 2689,
+        "errors": []
+      },
+      "treasury-real": {
+        "ok": 3,
+        "failed": 0,
+        "changedObs": 0,
+        "full": false,
+        "ms": 2500,
+        "errors": []
+      },
+      "bls": {
+        "ok": 16,
+        "failed": 0,
+        "changedObs": 0,
+        "full": false,
+        "ms": 2290,
+        "errors": []
+      },
+      "dol": {
+        "ok": 2,
+        "failed": 0,
+        "changedObs": 0,
+        "full": false,
+        "ms": 879,
+        "errors": []
+      },
+      "fed": {
+        "ok": 14,
+        "failed": 0,
+        "changedObs": 0,
+        "full": false,
+        "ms": 12424,
+        "errors": []
+      },
+      "census": {
+        "ok": 6,
+        "failed": 0,
+        "changedObs": 0,
+        "full": false,
+        "ms": 8653,
+        "errors": []
+      },
+      "nber": {
+        "ok": 1,
+        "failed": 0,
+        "changedObs": 0,
+        "full": false,
+        "ms": 20633,
+        "errors": []
+      },
+      "eia": {
+        "ok": 3,
+        "failed": 0,
+        "changedObs": 0,
+        "full": false,
+        "ms": 3738,
+        "errors": []
+      },
+      "fiscal": {
+        "ok": 2,
+        "failed": 0,
+        "changedObs": 0,
+        "full": false,
+        "ms": 1869,
+        "errors": []
+      },
+      "derived": {
+        "ok": 6,
+        "failed": 0
+      }
+    },
+    "indicators": {
+      "dff": true,
+      "dfedtaru": true,
+      "dfedtarl": true,
+      "sofr": true,
+      "rrpontsyd": true,
+      "dgs3mo": true,
+      "dgs6mo": true,
+      "dgs1": true,
+      "dgs2": true,
+      "dgs5": true,
+      "dgs10": true,
+      "dgs30": true,
+      "dfii5": true,
+      "dfii10": true,
+      "dfii30": true,
+      "cpiaucsl": true,
+      "cpilfesl": true,
+      "ppifis": true,
+      "ppiaco": true,
+      "eciallciv": true,
+      "payems": true,
+      "unrate": true,
+      "u6rate": true,
+      "civpart": true,
+      "emratio": true,
+      "jtsjol": true,
+      "jtshir": true,
+      "jtsqur": true,
+      "jtsldl": true,
+      "ces0500000003": true,
+      "awhaetp": true,
+      "icsa": true,
+      "ccsa": true,
+      "indpro": true,
+      "tcu": true,
+      "drtscilm": true,
+      "walcl": true,
+      "m2sl": true,
+      "bogmbase": true,
+      "wresbal": true,
+      "wtregen": true,
+      "busloans": true,
+      "totalsl": true,
+      "dtwexbgs": true,
+      "dexuseu": true,
+      "dexjpus": true,
+      "dexkous": true,
+      "rsafs": true,
+      "dgorder": true,
+      "houst": true,
+      "permit": true,
+      "hsn1f": true,
+      "bopgstb": true,
+      "usrec": true,
+      "dcoilwtico": true,
+      "dcoilbrenteu": true,
+      "dhhngsp": true,
+      "gfdebtn": true,
+      "fyfsd": true,
+      "t10y2y": true,
+      "t10y3m": true,
+      "t5yie": true,
+      "t10yie": true,
+      "t5yifr": true,
+      "rrsfs": true
+    },
+    "finishedAt": "2026-10-21T08:45:33.486Z",
+    "ms": 59624,
+    "implemented": 65,
+    "tally": {
+      "normal": 36,
+      "caution": 9,
+      "danger": 1,
+      "unknown": 19
+    }
+  },
+  {
+    "startedAt": "2026-10-21T08:44:17.200Z",
+    "sources": {
+      "nyfed": {
+        "ok": 5,
+        "failed": 0,
+        "changedObs": 8964,
+        "full": true,
+        "ms": 3539,
+        "errors": []
+      }
+    },
+    "indicators": {
+      "dff": true,
+      "dfedtaru": true,
+      "dfedtarl": true,
+      "sofr": true,
+      "rrpontsyd": true
+    },
+    "finishedAt": "2026-10-21T08:44:21.645Z",
+    "ms": 4438,
+    "implemented": 65,
+    "tally": {
+      "normal": 36,
+      "caution": 9,
+      "danger": 1,
+      "unknown": 19
+    }
+  },
+  {
+    "startedAt": "2026-10-21T08:41:37.210Z",
+    "sources": {
+      "nyfed": {
+        "ok": 5,
+        "failed": 0,
+        "changedObs": 23098,
+        "full": true,
+        "ms": 2738,
+        "errors": []
+      },
+      "treasury": {
+        "ok": 7,
+        "failed": 0,
+        "changedObs": 63445,
+        "full": true,
+        "ms": 46212,
+        "errors": []
+      },
+      "treasury-real": {
+        "ok": 3,
+        "failed": 0,
+        "changedObs": 16077,
+        "full": true,
+        "ms": 24930,
+        "errors": []
+      },
+      "bls": {
+        "ok": 16,
+        "failed": 0,
+        "changedObs": 4885,
+        "full": true,
+        "ms": 6794,
+        "errors": []
+      },
+      "dol": {
+        "ok": 2,
+        "failed": 0,
+        "changedObs": 6232,
+        "full": true,
+        "ms": 2284,
+        "errors": []
+      },
+      "fed": {
+        "ok": 14,
+        "failed": 0,
+        "changedObs": 48578,
+        "full": true,
+        "ms": 17670,
+        "errors": []
+      },
+      "census": {
+        "ok": 6,
+        "failed": 0,
+        "changedObs": 3590,
+        "full": true,
+        "ms": 12944,
+        "errors": []
+      },
+      "nber": {
+        "ok": 1,
+        "failed": 0,
+        "changedObs": 2063,
+        "full": true,
+        "ms": 990,
+        "errors": []
+      },
+      "eia": {
+        "ok": 3,
+        "failed": 0,
+        "changedObs": 24339,
+        "full": true,
+        "ms": 3701,
+        "errors": []
+      },
+      "fiscal": {
+        "ok": 2,
+        "failed": 0,
+        "changedObs": 146,
+        "full": true,
+        "ms": 1920,
+        "errors": []
+      },
+      "derived": {
+        "ok": 6,
+        "failed": 0
+      }
+    },
+    "indicators": {
+      "dff": true,
+      "dfedtaru": true,
+      "dfedtarl": true,
+      "sofr": true,
+      "rrpontsyd": true,
+      "dgs3mo": true,
+      "dgs6mo": true,
+      "dgs1": true,
+      "dgs2": true,
+      "dgs5": true,
+      "dgs10": true,
+      "dgs30": true,
+      "dfii5": true,
+      "dfii10": true,
+      "dfii30": true,
+      "cpiaucsl": true,
+      "cpilfesl": true,
+      "ppifis": true,
+      "ppiaco": true,
+      "eciallciv": true,
+      "payems": true,
+      "unrate": true,
+      "u6rate": true,
+      "civpart": true,
+      "emratio": true,
+      "jtsjol": true,
+      "jtshir": true,
+      "jtsqur": true,
+      "jtsldl": true,
+      "ces0500000003": true,
+      "awhaetp": true,
+      "icsa": true,
+      "ccsa": true,
+      "indpro": true,
+      "tcu": true,
+      "drtscilm": true,
+      "walcl": true,
+      "m2sl": true,
+      "bogmbase": true,
+      "wresbal": true,
+      "wtregen": true,
+      "busloans": true,
+      "totalsl": true,
+      "dtwexbgs": true,
+      "dexuseu": true,
+      "dexjpus": true,
+      "dexkous": true,
+      "rsafs": true,
+      "dgorder": true,
+      "houst": true,
+      "permit": true,
+      "hsn1f": true,
+      "bopgstb": true,
+      "usrec": true,
+      "dcoilwtico": true,
+      "dcoilbrenteu": true,
+      "dhhngsp": true,
+      "gfdebtn": true,
+      "fyfsd": true,
+      "t10y2y": true,
+      "t10y3m": true,
+      "t5yie": true,
+      "t10yie": true,
+      "t5yifr": true,
+      "rrsfs": true
+    },
+    "finishedAt": "2026-10-21T08:43:38.402Z",
+    "ms": 121175,
+    "implemented": 65,
+    "tally": {
+      "normal": 36,
+      "caution": 9,
+      "danger": 1,
+      "unknown": 19
+    }
+  }
+]

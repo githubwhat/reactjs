@@ -1,0 +1,205 @@
+{
+  "categories": [
+    {
+      "code": "A",
+      "ko": "정책금리·국채금리",
+      "en": "Policy & Treasury Rates"
+    },
+    {
+      "code": "B",
+      "ko": "금리차·실질금리·기대인플레이션",
+      "en": "Spreads, Real Yields & Breakevens"
+    },
+    {
+      "code": "C",
+      "ko": "물가·인플레이션",
+      "en": "Prices & Inflation"
+    },
+    {
+      "code": "D",
+      "ko": "고용·실업",
+      "en": "Employment"
+    },
+    {
+      "code": "E",
+      "ko": "성장·소비·기업활동",
+      "en": "Growth, Consumption & Business"
+    },
+    {
+      "code": "F",
+      "ko": "주택·부동산",
+      "en": "Housing"
+    },
+    {
+      "code": "G",
+      "ko": "신용위험·금융불안",
+      "en": "Credit Risk & Financial Stress"
+    },
+    {
+      "code": "H",
+      "ko": "연준 유동성·통화량",
+      "en": "Fed Liquidity & Money"
+    },
+    {
+      "code": "I",
+      "ko": "주식·환율·원자재",
+      "en": "Equities, FX & Commodities"
+    },
+    {
+      "code": "J",
+      "ko": "미국 재정·국가부채",
+      "en": "Fiscal & Federal Debt"
+    }
+  ],
+  "home": [
+    {
+      "label": "부채",
+      "id": "gfdebtn"
+    },
+    {
+      "label": "통화량",
+      "id": "m2sl"
+    },
+    {
+      "label": "정책금리",
+      "id": "dff"
+    },
+    {
+      "label": "국채금리",
+      "id": "dgs10"
+    },
+    {
+      "label": "장단기 금리차",
+      "id": "t10y2y"
+    },
+    {
+      "label": "달러/원",
+      "id": "dexkous"
+    },
+    {
+      "label": "달러/유로",
+      "id": "dexuseu"
+    },
+    {
+      "label": "달러/엔",
+      "id": "dexjpus"
+    },
+    {
+      "label": "유가",
+      "id": "dcoilwtico"
+    },
+    {
+      "label": "물가",
+      "id": "cpiaucsl"
+    },
+    {
+      "label": "부동산",
+      "id": "houst"
+    },
+    {
+      "label": "고용",
+      "id": "unrate"
+    },
+    {
+      "label": "소비·기업",
+      "id": "rsafs"
+    },
+    {
+      "label": "신용위험",
+      "id": "drtscilm"
+    }
+  ],
+  "indicators": [
+    { "id": "dff", "fred": "DFF", "cat": "A", "ko": "연방기금 실효금리", "en": "Effective Federal Funds Rate (EFFR)", "unit": "%", "freq": "daily", "src": "nyfed", "ref": "effr", "note": "뉴욕 연준 발표 영업일 기준 (FRED DFF는 주말·휴일을 직전 값으로 채움)" },
+    { "id": "dfedtaru", "fred": "DFEDTARU", "cat": "A", "ko": "연준 목표금리 상단", "en": "Fed Funds Target Range - Upper", "unit": "%", "freq": "daily", "src": "nyfed", "ref": "effr-upper", "note": "뉴욕 연준 EFFR 발표에 함께 게시되는 목표범위 (영업일 기준)" },
+    { "id": "dfedtarl", "fred": "DFEDTARL", "cat": "A", "ko": "연준 목표금리 하단", "en": "Fed Funds Target Range - Lower", "unit": "%", "freq": "daily", "src": "nyfed", "ref": "effr-lower", "note": "뉴욕 연준 EFFR 발표에 함께 게시되는 목표범위 (영업일 기준)" },
+    { "id": "sofr", "fred": "SOFR", "cat": "A", "ko": "SOFR", "en": "Secured Overnight Financing Rate", "unit": "%", "freq": "daily", "src": "nyfed", "ref": "sofr" },
+    { "id": "dgs3mo", "fred": "DGS3MO", "cat": "A", "ko": "국채 3개월 금리", "en": "3-Month Treasury Par Yield", "unit": "%", "freq": "daily", "src": "treasury", "ref": "BC_3MONTH" },
+    { "id": "dgs6mo", "fred": "DGS6MO", "cat": "A", "ko": "국채 6개월 금리", "en": "6-Month Treasury Par Yield", "unit": "%", "freq": "daily", "src": "treasury", "ref": "BC_6MONTH" },
+    { "id": "dgs1", "fred": "DGS1", "cat": "A", "ko": "국채 1년 금리", "en": "1-Year Treasury Par Yield", "unit": "%", "freq": "daily", "src": "treasury", "ref": "BC_1YEAR" },
+    { "id": "dgs2", "fred": "DGS2", "cat": "A", "ko": "국채 2년 금리", "en": "2-Year Treasury Par Yield", "unit": "%", "freq": "daily", "src": "treasury", "ref": "BC_2YEAR" },
+    { "id": "dgs5", "fred": "DGS5", "cat": "A", "ko": "국채 5년 금리", "en": "5-Year Treasury Par Yield", "unit": "%", "freq": "daily", "src": "treasury", "ref": "BC_5YEAR" },
+    { "id": "dgs10", "fred": "DGS10", "cat": "A", "ko": "국채 10년 금리", "en": "10-Year Treasury Par Yield", "unit": "%", "freq": "daily", "src": "treasury", "ref": "BC_10YEAR" },
+    { "id": "dgs30", "fred": "DGS30", "cat": "A", "ko": "국채 30년 금리", "en": "30-Year Treasury Par Yield", "unit": "%", "freq": "daily", "src": "treasury", "ref": "BC_30YEAR", "note": "재무부가 30년물 발행을 중단한 2002-02~2006-02 구간은 공백" },
+    { "id": "t10y2y", "fred": "T10Y2Y", "cat": "B", "ko": "10년−2년 금리차", "en": "10-Year minus 2-Year Treasury", "unit": "%p", "freq": "daily", "src": "derived", "ref": { "op": "diff", "a": "dgs10", "b": "dgs2" }, "note": "재무부 10년·2년 금리로 계산 (같은 날짜 값끼리)" },
+    { "id": "t10y3m", "fred": "T10Y3M", "cat": "B", "ko": "10년−3개월 금리차", "en": "10-Year minus 3-Month Treasury", "unit": "%p", "freq": "daily", "src": "derived", "ref": { "op": "diff", "a": "dgs10", "b": "dgs3mo" }, "note": "재무부 10년·3개월 금리로 계산" },
+    { "id": "dfii5", "fred": "DFII5", "cat": "B", "ko": "5년 실질금리", "en": "5-Year Real Yield (TIPS)", "unit": "%", "freq": "daily", "src": "treasury-real", "ref": "TC_5YEAR" },
+    { "id": "dfii10", "fred": "DFII10", "cat": "B", "ko": "10년 실질금리", "en": "10-Year Real Yield (TIPS)", "unit": "%", "freq": "daily", "src": "treasury-real", "ref": "TC_10YEAR" },
+    { "id": "dfii30", "fred": "DFII30", "cat": "B", "ko": "30년 실질금리", "en": "30-Year Real Yield (TIPS)", "unit": "%", "freq": "daily", "src": "treasury-real", "ref": "TC_30YEAR" },
+    { "id": "t5yie", "fred": "T5YIE", "cat": "B", "ko": "5년 기대인플레이션", "en": "5-Year Breakeven Inflation", "unit": "%", "freq": "daily", "src": "derived", "ref": { "op": "diff", "a": "dgs5", "b": "dfii5" }, "note": "5년 명목금리 − 5년 실질금리 (FRED와 같은 정의)" },
+    { "id": "t10yie", "fred": "T10YIE", "cat": "B", "ko": "10년 기대인플레이션", "en": "10-Year Breakeven Inflation", "unit": "%", "freq": "daily", "src": "derived", "ref": { "op": "diff", "a": "dgs10", "b": "dfii10" }, "note": "10년 명목금리 − 10년 실질금리 (FRED와 같은 정의)" },
+    { "id": "t5yifr", "fred": "T5YIFR", "cat": "B", "ko": "5년 후 5년 기대인플레이션", "en": "5-Year, 5-Year Forward Inflation Expectation", "unit": "%", "freq": "daily", "src": "derived", "ref": { "op": "fwd5y5y", "a": "t10yie", "b": "t5yie" }, "note": "((1+BE10)^10/(1+BE5)^5)^(1/5)−1 (FRED와 같은 공식)" },
+    { "id": "cpiaucsl", "fred": "CPIAUCSL", "cat": "C", "ko": "소비자물가지수 CPI", "en": "CPI-U, All Items (SA)", "unit": "지수", "freq": "monthly", "src": "bls", "ref": "CUSR0000SA0" },
+    { "id": "cpilfesl", "fred": "CPILFESL", "cat": "C", "ko": "근원 CPI", "en": "CPI-U, Less Food & Energy (SA)", "unit": "지수", "freq": "monthly", "src": "bls", "ref": "CUSR0000SA0L1E" },
+    { "id": "pcepi", "fred": "PCEPI", "cat": "C", "ko": "PCE 물가지수", "en": "PCE Price Index", "unit": "지수", "freq": "monthly", "excluded": { "reason": "등록 필요", "detail": "원천기관 BEA의 데이터 API는 사용자 등록(API 키)이 필요함" } },
+    { "id": "pcepilfe", "fred": "PCEPILFE", "cat": "C", "ko": "근원 PCE", "en": "Core PCE Price Index", "unit": "지수", "freq": "monthly", "excluded": { "reason": "등록 필요", "detail": "원천기관 BEA의 데이터 API는 사용자 등록(API 키)이 필요함" } },
+    { "id": "ppifis", "fred": "PPIFIS", "cat": "C", "ko": "최종수요 PPI", "en": "PPI: Final Demand (SA)", "unit": "지수", "freq": "monthly", "src": "bls", "ref": "WPSFD4" },
+    { "id": "ppiaco", "fred": "PPIACO", "cat": "C", "ko": "원자재 생산자물가", "en": "PPI: All Commodities (NSA)", "unit": "지수", "freq": "monthly", "src": "bls", "ref": "WPU00000000" },
+    { "id": "eciallciv", "fred": "ECIALLCIV", "cat": "C", "ko": "고용비용지수", "en": "ECI: Total Compensation, Civilian (SA)", "unit": "지수", "freq": "quarterly", "src": "bls", "ref": "CIS1010000000000I" },
+    { "id": "gdpdef", "fred": "GDPDEF", "cat": "C", "ko": "GDP 디플레이터", "en": "GDP Implicit Price Deflator", "unit": "지수", "freq": "quarterly", "excluded": { "reason": "등록 필요", "detail": "원천기관 BEA의 데이터 API는 사용자 등록(API 키)이 필요함" } },
+    { "id": "payems", "fred": "PAYEMS", "cat": "D", "ko": "비농업 고용자 수", "en": "Total Nonfarm Payrolls (SA)", "unit": "천 명", "freq": "monthly", "src": "bls", "ref": "CES0000000001", "change": "abs" },
+    { "id": "unrate", "fred": "UNRATE", "cat": "D", "ko": "실업률", "en": "Unemployment Rate (SA)", "unit": "%", "freq": "monthly", "src": "bls", "ref": "LNS14000000" },
+    { "id": "u6rate", "fred": "U6RATE", "cat": "D", "ko": "광의실업률", "en": "U-6 Unemployment Rate (SA)", "unit": "%", "freq": "monthly", "src": "bls", "ref": "LNS13327709" },
+    { "id": "civpart", "fred": "CIVPART", "cat": "D", "ko": "경제활동참가율", "en": "Labor Force Participation Rate (SA)", "unit": "%", "freq": "monthly", "src": "bls", "ref": "LNS11300000" },
+    { "id": "emratio", "fred": "EMRATIO", "cat": "D", "ko": "고용률", "en": "Employment-Population Ratio (SA)", "unit": "%", "freq": "monthly", "src": "bls", "ref": "LNS12300000" },
+    { "id": "icsa", "fred": "ICSA", "cat": "D", "ko": "신규 실업수당 청구", "en": "Initial Jobless Claims (SA)", "unit": "명", "freq": "weekly", "src": "dol", "ref": "initial" },
+    { "id": "ccsa", "fred": "CCSA", "cat": "D", "ko": "계속 실업수당 청구", "en": "Continued Jobless Claims (SA)", "unit": "명", "freq": "weekly", "src": "dol", "ref": "continued" },
+    { "id": "jtsjol", "fred": "JTSJOL", "cat": "D", "ko": "구인건수", "en": "JOLTS Job Openings (SA)", "unit": "천 건", "freq": "monthly", "src": "bls", "ref": "JTS000000000000000JOL" },
+    { "id": "jtshir", "fred": "JTSHIR", "cat": "D", "ko": "신규 채용률", "en": "JOLTS Hires Rate (SA)", "unit": "%", "freq": "monthly", "src": "bls", "ref": "JTS000000000000000HIR", "note": "FRED JTSHIR는 채용자 '수'가 아닌 채용 '비율'(%)" },
+    { "id": "jtsqur", "fred": "JTSQUR", "cat": "D", "ko": "자발적 퇴직률", "en": "JOLTS Quits Rate (SA)", "unit": "%", "freq": "monthly", "src": "bls", "ref": "JTS000000000000000QUR", "note": "FRED JTSQUR는 퇴직자 '수'가 아닌 퇴직 '비율'(%)" },
+    { "id": "jtsldl", "fred": "JTSLDL", "cat": "D", "ko": "해고·감원자 수", "en": "JOLTS Layoffs & Discharges (SA)", "unit": "천 명", "freq": "monthly", "src": "bls", "ref": "JTS000000000000000LDL" },
+    { "id": "ces0500000003", "fred": "CES0500000003", "cat": "D", "ko": "평균 시간당 임금", "en": "Average Hourly Earnings, Private (SA)", "unit": "달러", "freq": "monthly", "src": "bls", "ref": "CES0500000003" },
+    { "id": "awhaetp", "fred": "AWHAETP", "cat": "D", "ko": "평균 주당 근로시간", "en": "Average Weekly Hours, Private (SA)", "unit": "시간", "freq": "monthly", "src": "bls", "ref": "CES0500000002", "change": "abs" },
+    { "id": "gdpc1", "fred": "GDPC1", "cat": "E", "ko": "실질 GDP", "en": "Real GDP", "unit": "십억 달러", "freq": "quarterly", "excluded": { "reason": "등록 필요", "detail": "원천기관 BEA의 데이터 API는 사용자 등록(API 키)이 필요함" } },
+    { "id": "a191rl1q225sbea", "fred": "A191RL1Q225SBEA", "cat": "E", "ko": "실질 GDP 분기 성장률", "en": "Real GDP Growth (QoQ SAAR)", "unit": "%", "freq": "quarterly", "excluded": { "reason": "등록 필요", "detail": "원천기관 BEA의 데이터 API는 사용자 등록(API 키)이 필요함. 세계은행 연간 성장률로 대체하지 않음" } },
+    { "id": "gdpnow", "fred": "GDPNOW", "cat": "E", "ko": "GDPNow", "en": "Atlanta Fed GDPNow", "unit": "%", "freq": "irregular", "excluded": { "reason": "재배포 조건 미확인", "detail": "애틀랜타 연준 모형 추정치(xlsx)로, 광고 사이트 재게시 허용 여부를 확인하지 못함" } },
+    { "id": "indpro", "fred": "INDPRO", "cat": "E", "ko": "산업생산지수", "en": "Industrial Production: Total Index (SA)", "unit": "지수", "freq": "monthly", "src": "fed", "ref": { "rel": "G17", "series": "IP.B50001.S" } },
+    { "id": "tcu", "fred": "TCU", "cat": "E", "ko": "설비가동률", "en": "Capacity Utilization: Total Industry (SA)", "unit": "%", "freq": "monthly", "src": "fed", "ref": { "rel": "G17", "series": "CAPUTL.B50001.S" } },
+    { "id": "rsafs", "fred": "RSAFS", "cat": "E", "ko": "소매판매액", "en": "Retail & Food Services Sales (SA)", "unit": "백만 달러", "freq": "monthly", "src": "census", "ref": { "prog": "MARTS", "cat": "44X72", "dt": "SM", "adj": 1 } },
+    { "id": "rrsfs", "fred": "RRSFS", "cat": "E", "ko": "실질 소매판매액", "en": "Real Retail & Food Services Sales", "unit": "백만 달러(1982-84)", "freq": "monthly", "src": "derived", "ref": { "op": "deflate", "a": "rsafs", "b": "cpiaucsl" }, "note": "소매판매액 ÷ CPI-U(1982-84=100) × 100 (FRED와 같은 방식)" },
+    { "id": "pce", "fred": "PCE", "cat": "E", "ko": "개인소비지출", "en": "Personal Consumption Expenditures", "unit": "십억 달러", "freq": "monthly", "excluded": { "reason": "등록 필요", "detail": "원천기관 BEA의 데이터 API는 사용자 등록(API 키)이 필요함" } },
+    { "id": "pcec96", "fred": "PCEC96", "cat": "E", "ko": "실질 개인소비지출", "en": "Real Personal Consumption Expenditures", "unit": "십억 달러", "freq": "monthly", "excluded": { "reason": "등록 필요", "detail": "원천기관 BEA의 데이터 API는 사용자 등록(API 키)이 필요함" } },
+    { "id": "dgorder", "fred": "DGORDER", "cat": "E", "ko": "내구재 신규주문", "en": "Durable Goods New Orders (SA)", "unit": "백만 달러", "freq": "monthly", "src": "census", "ref": { "prog": "M3ADV", "cat": "MDM", "dt": "NO", "adj": 1 } },
+    { "id": "umcsent", "fred": "UMCSENT", "cat": "E", "ko": "소비자심리지수", "en": "U. of Michigan Consumer Sentiment", "unit": "지수", "freq": "monthly", "excluded": { "reason": "재배포 제한", "detail": "미시간대 소비자조사 데이터는 상업적 재배포에 라이선스가 필요함" } },
+    { "id": "cp", "fred": "CP", "cat": "E", "ko": "기업 세후이익", "en": "Corporate Profits After Tax", "unit": "십억 달러", "freq": "quarterly", "excluded": { "reason": "등록 필요", "detail": "원천기관 BEA의 데이터 API는 사용자 등록(API 키)이 필요함" } },
+    { "id": "houst", "fred": "HOUST", "cat": "F", "ko": "신규 주택착공", "en": "Housing Starts: Total (SAAR)", "unit": "천 호(연율)", "freq": "monthly", "src": "census", "ref": { "prog": "RESCONST", "cat": "ASTARTS", "dt": "TOTAL", "adj": 1 } },
+    { "id": "permit", "fred": "PERMIT", "cat": "F", "ko": "건축허가", "en": "Building Permits: Total (SAAR)", "unit": "천 호(연율)", "freq": "monthly", "src": "census", "ref": { "prog": "RESCONST", "cat": "APERMITS", "dt": "TOTAL", "adj": 1 } },
+    { "id": "hsn1f", "fred": "HSN1F", "cat": "F", "ko": "신규 단독주택 판매", "en": "New One-Family Houses Sold (SAAR)", "unit": "천 호(연율)", "freq": "monthly", "src": "census", "ref": { "prog": "RESSALES", "cat": "ASOLD", "dt": "TOTAL", "adj": 1 } },
+    { "id": "exhoslusm495s", "fred": "EXHOSLUSM495S", "cat": "F", "ko": "기존주택 판매", "en": "Existing Home Sales", "unit": "호(연율)", "freq": "monthly", "excluded": { "reason": "재배포 제한", "detail": "전미부동산협회(NAR) 소유 데이터로 재배포 권한 없음" } },
+    { "id": "csushpinsa", "fred": "CSUSHPINSA", "cat": "F", "ko": "케이스실러 주택가격지수", "en": "S&P CoreLogic Case-Shiller US Home Price Index", "unit": "지수", "freq": "monthly", "excluded": { "reason": "재배포 제한", "detail": "S&P Dow Jones Indices 라이선스 데이터" } },
+    { "id": "mortgage30us", "fred": "MORTGAGE30US", "cat": "F", "ko": "30년 모기지금리", "en": "30-Year Fixed Mortgage Rate (PMMS)", "unit": "%", "freq": "weekly", "excluded": { "reason": "재배포 제한", "detail": "Freddie Mac 약관: 별도 서면 계약 없이 데이터 재배포·상업적 이용 금지" } },
+    { "id": "mspus", "fred": "MSPUS", "cat": "F", "ko": "신규주택 판매가격 중위값", "en": "Median Sales Price of Houses Sold", "unit": "달러", "freq": "quarterly", "excluded": { "reason": "정의 불일치", "detail": "무등록 Census 파일에는 월간 중위값만 있고, 분기 중위값(MSPUS)은 없음. 월간 값으로 대체하지 않음" } },
+    { "id": "bamlh0a0hym2", "fred": "BAMLH0A0HYM2", "cat": "G", "ko": "하이일드 회사채 OAS", "en": "ICE BofA US High Yield OAS", "unit": "%p", "freq": "daily", "excluded": { "reason": "재배포 제한", "detail": "ICE Data Indices 라이선스 데이터" } },
+    { "id": "bamlc0a0cm", "fred": "BAMLC0A0CM", "cat": "G", "ko": "투자등급 회사채 OAS", "en": "ICE BofA US Corporate OAS", "unit": "%p", "freq": "daily", "excluded": { "reason": "재배포 제한", "detail": "ICE Data Indices 라이선스 데이터" } },
+    { "id": "baa10y", "fred": "BAA10Y", "cat": "G", "ko": "Baa 회사채−국채 금리차", "en": "Moody's Baa minus 10-Year Treasury", "unit": "%p", "freq": "daily", "excluded": { "reason": "재배포 제한", "detail": "Moody's 회사채 수익률은 라이선스 데이터" } },
+    { "id": "nfci", "fred": "NFCI", "cat": "G", "ko": "금융여건지수", "en": "Chicago Fed NFCI", "unit": "지수", "freq": "weekly", "excluded": { "reason": "재배포 제한", "detail": "시카고 연준 법적고지: 상업 목적 복제 불가, 재게시·배포는 사전 허가 필요" } },
+    { "id": "anfci", "fred": "ANFCI", "cat": "G", "ko": "조정 금융여건지수", "en": "Chicago Fed Adjusted NFCI", "unit": "지수", "freq": "weekly", "excluded": { "reason": "재배포 제한", "detail": "시카고 연준 법적고지: 상업 목적 복제 불가, 재게시·배포는 사전 허가 필요" } },
+    { "id": "stlfsi4", "fred": "STLFSI4", "cat": "G", "ko": "금융스트레스지수", "en": "St. Louis Fed Financial Stress Index", "unit": "지수", "freq": "weekly", "excluded": { "reason": "공식 데이터 미발견", "detail": "FRED로만 배포되며, FRED를 쓰지 않는 원칙에 따라 다른 무등록 공식 경로를 찾지 못함" } },
+    { "id": "drtscilm", "fred": "DRTSCILM", "cat": "G", "ko": "은행 대출심사 강화 비율", "en": "SLOOS: Net % Tightening C&I Loans (Large/Middle)", "unit": "%", "freq": "quarterly", "src": "fed", "ref": { "rel": "SLOOS", "series": "SUBLPDCILS_N.Q" }, "change": "pp" },
+    { "id": "sahmrealtime", "fred": "SAHMREALTIME", "cat": "G", "ko": "삼의 법칙 실시간 침체지표", "en": "Real-time Sahm Rule Indicator", "unit": "%p", "freq": "monthly", "excluded": { "reason": "정의 불일치", "detail": "'실시간' 지표는 발표 당시 실업률 빈티지가 필요하지만 BLS 무등록 API는 개정된 현재 값만 제공. 대신 실업률 위험 깃발에 삼의 법칙 계산을 적용함" } },
+    { "id": "usrec", "fred": "USREC", "cat": "G", "ko": "NBER 경기침체 지표", "en": "NBER-based Recession Indicator", "unit": "0/1", "freq": "monthly", "src": "nber", "ref": "usrec", "change": "abs", "note": "정점 다음 달부터 저점 달까지 1 (FRED와 같은 정의). NBER 판정은 수개월~1년 이상 늦게 발표됨" },
+    { "id": "walcl", "fred": "WALCL", "cat": "H", "ko": "연준 총자산", "en": "Fed Total Assets (Wednesday Level)", "unit": "십억 달러", "freq": "weekly", "src": "fed", "ref": { "rel": "H41", "series": "RESPPMA_N.WW", "to": 1000000000 } },
+    { "id": "m2sl", "fred": "M2SL", "cat": "H", "ko": "통화량 M2", "en": "M2 Money Stock (SA)", "unit": "십억 달러", "freq": "monthly", "src": "fed", "ref": { "rel": "H6", "series": "M2.M", "to": 1000000000 } },
+    { "id": "bogmbase", "fred": "BOGMBASE", "cat": "H", "ko": "본원통화", "en": "Monetary Base: Total (NSA)", "unit": "십억 달러", "freq": "monthly", "src": "fed", "ref": { "rel": "H6", "series": "RESMO14A_N.M", "to": 1000000000 } },
+    { "id": "wresbal", "fred": "WRESBAL", "cat": "H", "ko": "은행 지급준비금", "en": "Reserve Balances with Fed Banks (Week Avg)", "unit": "십억 달러", "freq": "weekly", "src": "fed", "ref": { "rel": "H41", "series": "RESH4R_XAW_N.WW", "to": 1000000000 } },
+    { "id": "rrpontsyd", "fred": "RRPONTSYD", "cat": "H", "ko": "역레포 잔액", "en": "Overnight Reverse Repo: Total Accepted", "unit": "십억 달러", "freq": "daily", "src": "nyfed", "ref": "rrp" },
+    { "id": "wtregen", "fred": "WTREGEN", "cat": "H", "ko": "미국 재무부 TGA 잔액", "en": "Treasury General Account (Week Avg)", "unit": "십억 달러", "freq": "weekly", "src": "fed", "ref": { "rel": "H41", "series": "RESPPLLDT_XAW_N.WW", "to": 1000000000 } },
+    { "id": "busloans", "fred": "BUSLOANS", "cat": "H", "ko": "기업대출 잔액", "en": "C&I Loans, All Commercial Banks (SA)", "unit": "십억 달러", "freq": "monthly", "src": "fed", "ref": { "rel": "H8", "series": "B1023NCBAM", "to": 1000000000 } },
+    { "id": "totalsl", "fred": "TOTALSL", "cat": "H", "ko": "소비자 신용잔액", "en": "Total Consumer Credit Outstanding (SA)", "unit": "십억 달러", "freq": "monthly", "src": "fed", "ref": { "rel": "G19", "series": "DTCTL.M", "to": 1000000000 } },
+    { "id": "sp500", "fred": "SP500", "cat": "I", "ko": "S&P 500", "en": "S&P 500 Index", "unit": "지수", "freq": "daily", "excluded": { "reason": "재배포 제한", "detail": "S&P Dow Jones Indices 라이선스 데이터" } },
+    { "id": "nasdaqcom", "fred": "NASDAQCOM", "cat": "I", "ko": "나스닥 종합지수", "en": "NASDAQ Composite Index", "unit": "지수", "freq": "daily", "excluded": { "reason": "재배포 제한", "detail": "Nasdaq 라이선스 데이터" } },
+    { "id": "djia", "fred": "DJIA", "cat": "I", "ko": "다우존스 지수", "en": "Dow Jones Industrial Average", "unit": "지수", "freq": "daily", "excluded": { "reason": "재배포 제한", "detail": "S&P Dow Jones Indices 라이선스 데이터" } },
+    { "id": "vixcls", "fred": "VIXCLS", "cat": "I", "ko": "VIX 변동성지수", "en": "CBOE Volatility Index", "unit": "지수", "freq": "daily", "excluded": { "reason": "재배포 제한", "detail": "Cboe 라이선스 데이터" } },
+    { "id": "dtwexbgs", "fred": "DTWEXBGS", "cat": "I", "ko": "미국 광의 달러지수", "en": "Nominal Broad U.S. Dollar Index", "unit": "지수", "freq": "daily", "src": "fed", "ref": { "rel": "H10", "series": "JRXWTFB_N.B" } },
+    { "id": "dexuseu", "fred": "DEXUSEU", "cat": "I", "ko": "유로/달러 환율", "en": "U.S. Dollars per Euro", "unit": "달러/유로", "freq": "daily", "src": "fed", "ref": { "rel": "H10", "series": "RXI$US_N.B.EU" } },
+    { "id": "dexjpus", "fred": "DEXJPUS", "cat": "I", "ko": "달러/엔 환율", "en": "Japanese Yen per U.S. Dollar", "unit": "엔/달러", "freq": "daily", "src": "fed", "ref": { "rel": "H10", "series": "RXI_N.B.JA" } },
+    { "id": "dexkous", "fred": "DEXKOUS", "cat": "I", "ko": "달러/원 환율", "en": "Korean Won per U.S. Dollar", "unit": "원/달러", "freq": "daily", "src": "fed", "ref": { "rel": "H10", "series": "RXI_N.B.KO" } },
+    { "id": "dcoilwtico", "fred": "DCOILWTICO", "cat": "I", "ko": "WTI 원유가격", "en": "WTI Crude Oil Spot Price (Cushing, OK)", "unit": "달러/배럴", "freq": "daily", "src": "eia", "ref": "PET/RWTC" },
+    { "id": "dcoilbrenteu", "fred": "DCOILBRENTEU", "cat": "I", "ko": "브렌트유 가격", "en": "Brent Crude Oil Spot Price (Europe)", "unit": "달러/배럴", "freq": "daily", "src": "eia", "ref": "PET/RBRTE" },
+    { "id": "dhhngsp", "fred": "DHHNGSP", "cat": "I", "ko": "천연가스 가격", "en": "Henry Hub Natural Gas Spot Price", "unit": "달러/MMBtu", "freq": "daily", "src": "eia", "ref": "NG/RNGWHHD" },
+    { "id": "gfdebtn", "fred": "GFDEBTN", "cat": "J", "ko": "미국 연방정부 총부채", "en": "Total Public Debt Outstanding (Quarter-end)", "unit": "십억 달러", "freq": "quarterly", "src": "fiscal", "ref": "debt-quarterly", "note": "Debt to the Penny 일별 자료 중 각 분기 마지막 관측값 (FRED와 같은 분기말 기준)" },
+    { "id": "gfdegdq188s", "fred": "GFDEGDQ188S", "cat": "J", "ko": "GDP 대비 정부부채", "en": "Federal Debt as % of GDP", "unit": "%", "freq": "quarterly", "excluded": { "reason": "등록 필요", "detail": "분모인 명목 GDP가 BEA API(키 필요)에서만 제공됨" } },
+    { "id": "fyfsd", "fred": "FYFSD", "cat": "J", "ko": "미국 재정수지", "en": "Federal Surplus or Deficit (Fiscal Year)", "unit": "십억 달러", "freq": "annual", "src": "fiscal", "ref": "fy-deficit", "change": "abs", "note": "월간 재무제표(MTS) 회계연도 누계, 적자는 음수. Fiscal Data API 제공 범위(FY2015~)만 표시" },
+    { "id": "bopgstb", "fred": "BOPGSTB", "cat": "J", "ko": "상품·서비스 무역수지", "en": "Trade Balance: Goods & Services, BOP Basis (SA)", "unit": "백만 달러", "freq": "monthly", "src": "census", "ref": { "prog": "FTD", "cat": "BOPGS", "dt": "BAL", "adj": 1 }, "change": "abs" }
+  ]
+}

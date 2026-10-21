@@ -1,0 +1,95 @@
+{
+  "checkedAt": "2026-10-21T08:41:30.980Z",
+  "results": {
+    "treasury": {
+      "ok": true,
+      "sample": {
+        "label": "10년 금리",
+        "date": "2026-10-20",
+        "value": 5.12
+      },
+      "ms": 1130,
+      "registration": false
+    },
+    "nyfed": {
+      "ok": true,
+      "sample": {
+        "label": "SOFR",
+        "date": "2026-10-19",
+        "value": 3.87
+      },
+      "ms": 283,
+      "registration": false
+    },
+    "bls": {
+      "ok": true,
+      "sample": {
+        "label": "실업률",
+        "date": "2026-09-01",
+        "value": 4.2
+      },
+      "ms": 581,
+      "registration": false
+    },
+    "dol": {
+      "ok": true,
+      "sample": {
+        "label": "신규 실업수당 청구",
+        "date": "2026-09-19",
+        "value": 198000
+      },
+      "ms": 827,
+      "registration": false
+    },
+    "fed": {
+      "ok": true,
+      "sample": {
+        "label": "SLOOS 대출심사",
+        "date": "2026-07-01",
+        "value": 0
+      },
+      "ms": 648,
+      "registration": false
+    },
+    "census": {
+      "ok": true,
+      "sample": {
+        "label": "무역수지",
+        "date": "2026-08-01",
+        "value": -105572
+      },
+      "ms": 541,
+      "registration": false
+    },
+    "fiscal": {
+      "ok": true,
+      "sample": {
+        "label": "총부채",
+        "date": "2026-10-19",
+        "value": 40396401120485.05
+      },
+      "ms": 912,
+      "registration": false
+    },
+    "eia": {
+      "ok": true,
+      "sample": {
+        "label": "헨리허브 가스",
+        "date": "2026-10-14",
+        "value": 3.22
+      },
+      "ms": 1122,
+      "registration": false
+    },
+    "nber": {
+      "ok": true,
+      "sample": {
+        "label": "경기침체 0/1",
+        "date": "2026-10-01",
+        "value": 0
+      },
+      "ms": 985,
+      "registration": false
+    }
+  }
+}

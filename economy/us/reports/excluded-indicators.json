@@ -1,0 +1,223 @@
+{
+  "generatedAt": "2026-10-21T09:08:36.660Z",
+  "candidates": 91,
+  "implemented": 65,
+  "excluded": 26,
+  "byReason": {
+    "등록 필요": 9,
+    "재배포 조건 미확인": 1,
+    "재배포 제한": 13,
+    "정의 불일치": 2,
+    "공식 데이터 미발견": 1
+  },
+  "indicators": [
+    {
+      "id": "pcepi",
+      "fred": "PCEPI",
+      "category": "C",
+      "name": "PCE 물가지수",
+      "reason": "등록 필요",
+      "detail": "원천기관 BEA의 데이터 API는 사용자 등록(API 키)이 필요함"
+    },
+    {
+      "id": "pcepilfe",
+      "fred": "PCEPILFE",
+      "category": "C",
+      "name": "근원 PCE",
+      "reason": "등록 필요",
+      "detail": "원천기관 BEA의 데이터 API는 사용자 등록(API 키)이 필요함"
+    },
+    {
+      "id": "gdpdef",
+      "fred": "GDPDEF",
+      "category": "C",
+      "name": "GDP 디플레이터",
+      "reason": "등록 필요",
+      "detail": "원천기관 BEA의 데이터 API는 사용자 등록(API 키)이 필요함"
+    },
+    {
+      "id": "gdpc1",
+      "fred": "GDPC1",
+      "category": "E",
+      "name": "실질 GDP",
+      "reason": "등록 필요",
+      "detail": "원천기관 BEA의 데이터 API는 사용자 등록(API 키)이 필요함"
+    },
+    {
+      "id": "a191rl1q225sbea",
+      "fred": "A191RL1Q225SBEA",
+      "category": "E",
+      "name": "실질 GDP 분기 성장률",
+      "reason": "등록 필요",
+      "detail": "원천기관 BEA의 데이터 API는 사용자 등록(API 키)이 필요함. 세계은행 연간 성장률로 대체하지 않음"
+    },
+    {
+      "id": "gdpnow",
+      "fred": "GDPNOW",
+      "category": "E",
+      "name": "GDPNow",
+      "reason": "재배포 조건 미확인",
+      "detail": "애틀랜타 연준 모형 추정치(xlsx)로, 광고 사이트 재게시 허용 여부를 확인하지 못함"
+    },
+    {
+      "id": "pce",
+      "fred": "PCE",
+      "category": "E",
+      "name": "개인소비지출",
+      "reason": "등록 필요",
+      "detail": "원천기관 BEA의 데이터 API는 사용자 등록(API 키)이 필요함"
+    },
+    {
+      "id": "pcec96",
+      "fred": "PCEC96",
+      "category": "E",
+      "name": "실질 개인소비지출",
+      "reason": "등록 필요",
+      "detail": "원천기관 BEA의 데이터 API는 사용자 등록(API 키)이 필요함"
+    },
+    {
+      "id": "umcsent",
+      "fred": "UMCSENT",
+      "category": "E",
+      "name": "소비자심리지수",
+      "reason": "재배포 제한",
+      "detail": "미시간대 소비자조사 데이터는 상업적 재배포에 라이선스가 필요함"
+    },
+    {
+      "id": "cp",
+      "fred": "CP",
+      "category": "E",
+      "name": "기업 세후이익",
+      "reason": "등록 필요",
+      "detail": "원천기관 BEA의 데이터 API는 사용자 등록(API 키)이 필요함"
+    },
+    {
+      "id": "exhoslusm495s",
+      "fred": "EXHOSLUSM495S",
+      "category": "F",
+      "name": "기존주택 판매",
+      "reason": "재배포 제한",
+      "detail": "전미부동산협회(NAR) 소유 데이터로 재배포 권한 없음"
+    },
+    {
+      "id": "csushpinsa",
+      "fred": "CSUSHPINSA",
+      "category": "F",
+      "name": "케이스실러 주택가격지수",
+      "reason": "재배포 제한",
+      "detail": "S&P Dow Jones Indices 라이선스 데이터"
+    },
+    {
+      "id": "mortgage30us",
+      "fred": "MORTGAGE30US",
+      "category": "F",
+      "name": "30년 모기지금리",
+      "reason": "재배포 제한",
+      "detail": "Freddie Mac 약관: 별도 서면 계약 없이 데이터 재배포·상업적 이용 금지"
+    },
+    {
+      "id": "mspus",
+      "fred": "MSPUS",
+      "category": "F",
+      "name": "신규주택 판매가격 중위값",
+      "reason": "정의 불일치",
+      "detail": "무등록 Census 파일에는 월간 중위값만 있고, 분기 중위값(MSPUS)은 없음. 월간 값으로 대체하지 않음"
+    },
+    {
+      "id": "bamlh0a0hym2",
+      "fred": "BAMLH0A0HYM2",
+      "category": "G",
+      "name": "하이일드 회사채 OAS",
+      "reason": "재배포 제한",
+      "detail": "ICE Data Indices 라이선스 데이터"
+    },
+    {
+      "id": "bamlc0a0cm",
+      "fred": "BAMLC0A0CM",
+      "category": "G",
+      "name": "투자등급 회사채 OAS",
+      "reason": "재배포 제한",
+      "detail": "ICE Data Indices 라이선스 데이터"
+    },
+    {
+      "id": "baa10y",
+      "fred": "BAA10Y",
+      "category": "G",
+      "name": "Baa 회사채−국채 금리차",
+      "reason": "재배포 제한",
+      "detail": "Moody's 회사채 수익률은 라이선스 데이터"
+    },
+    {
+      "id": "nfci",
+      "fred": "NFCI",
+      "category": "G",
+      "name": "금융여건지수",
+      "reason": "재배포 제한",
+      "detail": "시카고 연준 법적고지: 상업 목적 복제 불가, 재게시·배포는 사전 허가 필요"
+    },
+    {
+      "id": "anfci",
+      "fred": "ANFCI",
+      "category": "G",
+      "name": "조정 금융여건지수",
+      "reason": "재배포 제한",
+      "detail": "시카고 연준 법적고지: 상업 목적 복제 불가, 재게시·배포는 사전 허가 필요"
+    },
+    {
+      "id": "stlfsi4",
+      "fred": "STLFSI4",
+      "category": "G",
+      "name": "금융스트레스지수",
+      "reason": "공식 데이터 미발견",
+      "detail": "FRED로만 배포되며, FRED를 쓰지 않는 원칙에 따라 다른 무등록 공식 경로를 찾지 못함"
+    },
+    {
+      "id": "sahmrealtime",
+      "fred": "SAHMREALTIME",
+      "category": "G",
+      "name": "삼의 법칙 실시간 침체지표",
+      "reason": "정의 불일치",
+      "detail": "'실시간' 지표는 발표 당시 실업률 빈티지가 필요하지만 BLS 무등록 API는 개정된 현재 값만 제공. 대신 실업률 위험 깃발에 삼의 법칙 계산을 적용함"
+    },
+    {
+      "id": "sp500",
+      "fred": "SP500",
+      "category": "I",
+      "name": "S&P 500",
+      "reason": "재배포 제한",
+      "detail": "S&P Dow Jones Indices 라이선스 데이터"
+    },
+    {
+      "id": "nasdaqcom",
+      "fred": "NASDAQCOM",
+      "category": "I",
+      "name": "나스닥 종합지수",
+      "reason": "재배포 제한",
+      "detail": "Nasdaq 라이선스 데이터"
+    },
+    {
+      "id": "djia",
+      "fred": "DJIA",
+      "category": "I",
+      "name": "다우존스 지수",
+      "reason": "재배포 제한",
+      "detail": "S&P Dow Jones Indices 라이선스 데이터"
+    },
+    {
+      "id": "vixcls",
+      "fred": "VIXCLS",
+      "category": "I",
+      "name": "VIX 변동성지수",
+      "reason": "재배포 제한",
+      "detail": "Cboe 라이선스 데이터"
+    },
+    {
+      "id": "gfdegdq188s",
+      "fred": "GFDEGDQ188S",
+      "category": "J",
+      "name": "GDP 대비 정부부채",
+      "reason": "등록 필요",
+      "detail": "분모인 명목 GDP가 BEA API(키 필요)에서만 제공됨"
+    }
+  ]
+}
